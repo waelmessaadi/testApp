@@ -119,6 +119,7 @@ To fetch details we are using RandomUserApi here :
     - https://randomuser.me/documentation
     
     
+```
 package com.example.testapp.interfaces;
 
 import com.example.testapp.models.UserResponse;
@@ -130,11 +131,13 @@ public interface TestAppApiServices {
     @GET("api")
     Observable<UserResponse> getUsers();
 }
+```
 
 As you can see the return type is Observable will see more about RxJava later in the article.
 
 Our User and UserResponse model class look like this:
 
+```
 package com.example.testapp.models;
 
 import com.google.gson.annotations.Expose;
@@ -156,8 +159,8 @@ public class UserResponse {
     }
 
 }
-
-
+```
+```
 package com.example.testapp.models;
 
 public class UserModel {
@@ -205,15 +208,18 @@ public class UserModel {
         this.email = email;
     }
 }
-
+```
 
 ## Setting up Hilt
 Base Application class: This class is necessary for the hilt and you should annotate it with @HiltAndroidApp. Don't forget to add it to the manifest file in the application tag.
 
+```
 <application
     android:name=".BaseApplication"
-    
-    
+```
+
+
+```    
 package com.example.testapp;
 
 import android.app.Application;
@@ -223,12 +229,13 @@ import dagger.hilt.android.HiltAndroidApp;
 @HiltAndroidApp
 public class BaseApplication extends Application {
 }
-
+```
 
 Now we will create a Network module. Now, what is a module? A module is a class that provides information to the hilt about how to provide an instance of a class we don't own. For hilt to instantiate objects for us we use @Inject annotation above the constructor of the class but when where to put the @Inject annotation when we don't own a class or when we are dealing with an interface which doesn't have a constructor in these cases we use @Provide annotation inside the module class to tell hilt to instantiate these objects for us. To setup module create a class NetworkModule and annotate it with @Module annotation now in hilt we have to add one more annotation which is @InsatallIn annotation and we will pass ApplicationComponent here because we want the NetworkModule to be available for us for application scope.
 
 In the module, we will provide a method to get the TestAppApiServices object. Create a method provideTestAppApiService of TestAppApiServices return type and annotate it with @Provide annotation.
 
+```
 package com.example.testapp.di;
 
 import android.app.Application;
@@ -292,12 +299,14 @@ public class NetworkModule {
                 .create(TestAppApiServices.class);
     }
 }
+```
 
 Our app will have two fragments one to show the list of users fetched from the API and the second fragment will show the detsils of selected user which we have saved using Room.
 
 
 ## Setting up Repository
 
+```
 package com.example.testapp.repository;
 
 import com.example.testapp.configs.PreferencesHelper;
@@ -365,10 +374,11 @@ public class TestAppRepository {
     }
 
 }
-
+```
 
 ## Setting up ViewModel
 
+```
 package com.example.testapp.viewmodels;
 
 import android.util.Log;
@@ -435,10 +445,11 @@ public class UsersViewModel extends ViewModel {
 
     }
 }
-
+```
 
 ## Setting up Fragments 
 
+```
 package com.example.testapp.views;
 
 import android.os.Bundle;
@@ -570,3 +581,4 @@ public class UsersView extends Fragment {
 
     }
 }
+```

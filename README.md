@@ -7,7 +7,7 @@ In this project, we will fetch details form a REST API and then use Room to save
 
 Let's dive into code.
 
-###### First, add all the required dependencies to your project.
+## First, add all the required dependencies to your project.
 
 ```
 plugins {
@@ -112,7 +112,7 @@ dependencies {
 To setup hilt, you can also find the instructions from this link :
 https://developer.android.com/training/dependency-injection/hilt-android
 
-###### Setting up API service
+## Setting up API service
 To fetch details we are using RandomUserApi here :
 - Random Users:
     - https://randomuser.me/api (REST / JSON)
@@ -207,7 +207,7 @@ public class UserModel {
 }
 
 
-###### Setting up Hilt
+## Setting up Hilt
 Base Application class: This class is necessary for the hilt and you should annotate it with @HiltAndroidApp. Don't forget to add it to the manifest file in the application tag.
 
 <application
@@ -296,7 +296,7 @@ public class NetworkModule {
 Our app will have two fragments one to show the list of users fetched from the API and the second fragment will show the detsils of selected user which we have saved using Room.
 
 
-###### Setting up Repository
+## Setting up Repository
 
 package com.example.testapp.repository;
 
@@ -367,7 +367,7 @@ public class TestAppRepository {
 }
 
 
-###### Setting up ViewModel
+## Setting up ViewModel
 
 package com.example.testapp.viewmodels;
 
@@ -437,7 +437,7 @@ public class UsersViewModel extends ViewModel {
 }
 
 
-###### Setting up Fragments 
+## Setting up Fragments 
 
 package com.example.testapp.views;
 

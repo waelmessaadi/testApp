@@ -9,7 +9,7 @@ Let's dive into code.
 
 ###### First, add all the required dependencies to your project.
 
-{
+```
 plugins {
     id 'com.android.application'
     id 'com.jakewharton.butterknife'
@@ -107,7 +107,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }
 
-}
+```
 
 To setup hilt, you can also find the instructions from this link :
 https://developer.android.com/training/dependency-injection/hilt-android

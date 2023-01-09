@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/usersView">
+
+    <fragment
+        android:id="@+id/usersView"
+        android:name="com.example.testapp.views.UsersView"
+        android:label="users_view"
+        tools:layout="@layout/users_view" >
+        <action
+            android:id="@+id/action_usersView_to_userDetailsView"
+            app:destination="@id/userDetailsView" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailsView"
+        android:name="com.example.testapp.views.UserDetailsView"
+        android:label="user_details_view"
+        tools:layout="@layout/user_details_view">
+
+        <argument
+            android:name="arg_firstname"
+            app:argType="string"
+            android:defaultValue="waell" />
+
+        <argument
+            android:name="arg_image"
+            app:argType="string"
+            android:defaultValue="waell" />
+
+        <argument
+            android:name="arg_lastname"
+            app:argType="string"
+            android:defaultValue="messs" />
+
+        <argument
+            android:name="arg_email"
+            app:argType="string"
+            android:defaultValue="messs@wall.com" />
+    </fragment>
+</navigation>
